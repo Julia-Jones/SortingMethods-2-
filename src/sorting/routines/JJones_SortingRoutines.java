@@ -17,7 +17,7 @@ import java.util.Set;
  */
 public class JJones_SortingRoutines extends javax.swing.JFrame {
     
-ArrayList <String> integer = new ArrayList();
+ArrayList <Integer> integer = new ArrayList();
 int total =0;
     /**
      * Creates new form JJones_SortingRoutines
@@ -273,59 +273,36 @@ int total =0;
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_exitActionPerformed
-public static int[] chooseAny(int amount, String convert){
     
-    for(int i = 0; i <= amount; i++){
-       //random number generator between -1000 and 1000
-      Random randNumber = new Random(); 
-      int numb = - 1000 + randNumber.nextInt(1000);
-           convert = Integer.toString(numb);  
-           integer.add(convert);
-             i++;
-           } 
-     
-        int[] lottery = new int[n];
-        int[] chooseFrom = new int[49];
-        for(int i=1 ; i <= 49 ; i++)
-            chooseFrom[i-1] = i;
-        Random rand = new Random();
-        int N = 49;
-        int index;
-        for(int i=0 ; i < n ; i++){
-            //pick random index
-            index = rand.nextInt(N);
-            lottery[i] = chooseFrom[index];
-            chooseFrom[index] = chooseFrom[N-1];
-            N--;
-        }
-        return lottery;
-       
-    }
-
     private void sortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortActionPerformed
       String a;
       String temp="";
       
-//      String entered = input1.getText();
-//    //converting the number entered from a string to an int
-//        int amount = Integer.parseInt(entered);
-//      
-//      //goes through and enters each number on a new line
-//      Iterator stepper = integer.iterator();
-//      
-//     //Iterator is used to go through a collection, in this case, an ArrayList
-//        for (int j=0;j<integer.size();j++){
-//            a = (String) stepper.next();
-//            temp = temp + a +"\n";
-//        }
-//       Output1.setText(temp);
-////
-
-
-int[] lottery = new int[n];
-        int[] chooseFrom = new int[49];
+      String entered = input1.getText();
+          //converting the number entered from a string to an int
+        int amount = Integer.parseInt(entered);
+      
+      
+        for(int i = 1; i <= amount; i--){
+     //random number generator between -1000 and 1000
+      Random randNumber = new Random(); 
+      int numb = - 1000 + randNumber.nextInt(1000);
+           integer.add(numb);
+           } 
         
-        Output1.setText(lottery);
+        ArrayList<String> numbers = new ArrayList<String>();
+        for(Integer i: integer){
+            numbers.add(String.valueOf(i));
+      //goes through and enters each number on a new line
+      Iterator stepper = numbers.iterator();
+     //Iterator is used to go through a collection, in this case, an ArrayList
+        for (int j=0;j<numbers.size();j++){
+            a = (String) stepper.next();
+            temp = temp + a +"\n";
+        }
+       Output1.setText(temp);
+ }
+        
     }//GEN-LAST:event_sortActionPerformed
 
     /**
